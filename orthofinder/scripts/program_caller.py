@@ -179,6 +179,10 @@ class ProgramCaller(object):
     def TestTreeMethod(self, working_dir, method_name):
         return self._TestMethod(working_dir, 'tree', method_name)
         
+    # TODO: Fix error for checking dependencies
+    # In this test process, I keep getting the error message of "ERROR: Cannot run diamond", while I have diamond.
+    # When I have tries each command line by line, it outputs a result file.
+    # So something is wrong with this Testing function or Calling command function.
     def TestSearchMethod(self, working_dir, method_name):
         d = working_dir + "temp_83583209132/"
         os.mkdir(d)
@@ -193,9 +197,9 @@ class ProgramCaller(object):
 #            with open(resultsfn, 'rb') as f:
 #                print("".join(f))
         except:
-            shutil.rmtree(d)
+            # shutil.rmtree(d)
             raise
-        shutil.rmtree(d)
+        # shutil.rmtree(d)
         return success
     
     def _CallMethod(self, method_type, method_name, infilename, outfilename, identifier=None, dbname=None, nSeqs=None):
